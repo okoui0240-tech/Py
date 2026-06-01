@@ -1,0 +1,6 @@
+{
+  "name": "BeautyPOS",
+  "description": "نظام إدارة محل التجميل والعطور الذكي ونقطة البيع - تتبع الصلاحية وإدارة المخزون والتقارير المالية.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
