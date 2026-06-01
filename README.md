@@ -1,21 +1,52 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 📱 BeautyPOS - نظام نقطة البيع لمنتجات التجميل الفاخرة
 
-# Run and deploy your AI Studio app
+تطبيق نقطة بيع (POS) فاخر ومتطور مخصص لمحلات مستحضرات التجميل، العطور، والعناية بالبشرة. تم تصميمه وتطويره باستخدام **Jetpack Compose** و **Material Design 3** باللون الوردي المخملي والذهبي الفاخر لتوفير تجربة مستخدم عصرية وأداء سلس للغاية.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/37f5f9b4-990d-45e4-ad0b-6e2c491c117d
+## ✨ المميزات الرئيسية
+- 🛒 **نظام مبيعات سريع ومباشر (POS Tab):** لتصفح المنتجات عبر التصنيفات المختلفة، البحث السريع، لإدارة وتفريغ السلة مع إمكانية تطبيق خصومات يدوية وحساب المجاميع اللحظية والنهائية بدقة.
+- 🧾 **فاتورة بيع مطبوعة رقمية:** تظهر تفاصيل المنتجات، كمياتها، الخصومات المطبقة، والمجموع الكلي، مع واجهة منسقة باللغة العربية.
+- 📦 **جرد وإدارة المخزون (Inventory Tab):** لمتابعة كمية كل منتج بدقة، الشحن السريع للمخازن (+5 قطع بنقرة واحدة)، وإدراج منتجات جديدة وتحديث أسعارها.
+- 📊 **التقارير المالية اليومية (Reports Tab):** لمراقبة إجمالي الأرباح اليومية، عدد العمليات المنفذة، وتحديد الفئة الأكثر شعبية.
+- 🚀 **متوافق مع خطوط أنابيب GitHub Actions:** مبرمج وجاهز للتصدير المباشر لملف APK عند رفعه على GitHub.
 
-## Run Locally
+---
 
-**Prerequisites:**  [Android Studio](https://developer.android.com/studio)
+## 🛠️ كيف يتم التصدير التلقائي لـ APK عبر GitHub؟
 
+لقد قمنا بتجهيز وإعداد هذا المشروع بالكامل ليكون جاهزاً للرفع على **GitHub** وتفعيل ميزة **GitHub Actions** ليقوم ببناء وتصدير ملف الـ APK وتنزيله مباشرة بدون حاجة لفتح Android Studio على جهازك!
 
-1. Open Android Studio
-2. Select **Open** and choose the directory containing this project
-3. Allow Android Studio to fix any incompatibilities as it imports the project.
-4. Create a file named `.env` in the project directory and set `GEMINI_API_KEY` in that file to your Gemini API key (see `.env.example` for an example)
-5. Remove this line from the app's `build.gradle.kts` file: `signingConfig = signingConfigs.getByName("debugConfig")`
-6. Run the app on an emulator or physical device
+### 📝 خطوات الرفع والتصدير:
+
+1. **إنشاء مستودع جديد على GitHub:**
+   - اذهب إلى موقع [GitHub](https://github.com) وأنشئ مستودعاً جديداً (Repository) باسم من اختيارك (مثلاً: `beauty-pos`).
+
+2. **رفع الكود إلى المستودع:**
+   - افتح الطرفية (Terminal) أو سطر الأوامر في مجلد المشروع، وقم بتنفيذ الأوامر التالية:
+     ```bash
+     git init
+     git add .
+     git commit -m "إطلاق أول لنظام BeautyPOS الفاخر مع ملحق التصدير التلقائي"
+     git branch -M main
+     git remote add origin https://github.com/USERNAME/beauty-pos.git
+     # استبدل USERNAME باسم مستخدم GitHub الخاص بك و beauty-pos باسم المستودع
+     git push -u origin main
+     ```
+
+3. **صدور الـ APK تلقائياً (GitHub Actions):**
+   - بمجرد رفع الكود (Push)، سيقوم GitHub تلقائياً ببدء تشغيل سيناريو البناء في الـ **Workflows**.
+   - اذهب إلى تبويب **Actions** في مستودعك على GitHub.
+   - ستجد عملية بناء جارية باسم **Android CI Build** أو **Build Android APK**.
+   - بعد انتهاء البناء بنجاح (خلال دقيقتين تقريباً)، ستتمكن من تحميل ملف الـ **debug APK** المشيّد مباشرة من تفاصيل تشغيل الـ Action من قائمة **Artifacts** في الأسفل باسم `beauty-pos-debug-apk`.
+
+---
+
+## ⚙️ محتويات إعدادات التطوير الذاتي
+- **مجلد سير العمل (`.github/workflows/android.yml`):** يحتوي على تعليمات البناء التلقائي لبيئة Ubuntu وتحضير JDK 17 وتنفيد أمر `./gradlew assembleDebug`.
+- **ملفات التجاهل (`.gitignore`):** تمنع رفع الملفات المؤقتة والملفات المحلية ومخرجات البناء لتوفير مستودع كود نظيف وخفيف ومجرد من الأخطاء.
+- **ملفات Gradle Wrapper (`gradlew`, `gradlew.bat`):** مشيدة ومحفوظة بالكامل لتسهيل عملية التشييد والبناء من أي خادم خارجي أو حاسوب دون الحاجة لتثبيت Gradle يدوياً.
+
+---
+
+🎨 **تمت صياغة الواجهات وتزيينها يدويًا لتقدم المظهر الفاخر الأمثل لعملائك.** بالتوفيق في استخدام وتطوير نظام BeautyPOS الفاخر! ✨

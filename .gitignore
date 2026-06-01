@@ -1,0 +1,22 @@
+# Built outputs
+.gradle
+.kotlin
+/build
+/app/build
+/local.properties
+/.idea
+.DS_Store
+*.iml
+
+# APKs and outputs
+.build-outputs/
+APK_DOWNLOAD/
+*.apk
+*.aab
+
+# Logs
+*.log
+
+# Gradle Wrapper Jar is binary but should be committed, standard practice ensures it is.
+# If people ignore *.jar, we make sure gradle-wrapper.jar is included:
+!gradle-wrapper.jar
